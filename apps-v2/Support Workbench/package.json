@@ -1,0 +1,192 @@
+{
+  "private": true,
+  "retool": {
+    "app": {
+      "uuid": "6bf284e0-7abf-11f1-90a2-779a3f516024",
+      "name": "Support Workbench",
+      "resourceReferencesByFile": {
+        "/backend/support/escalateTicket.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/generateAISummary.ts": [
+          {
+            "name": "retool_ai_provider_3b4f6ec428757952c0e87d095ed099f7",
+            "displayName": "OpenAI",
+            "type": "openAIProvider"
+          },
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getAISummary.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getAnalyticsKPIs.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getCustomerTickets.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getEmployeeTickets.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getFilterOptions.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getHistoryByTicket.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getKPIs.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getNotesByTicket.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getOpenTicketsByAssignee.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getOpenTicketsByType.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getSlaCompliance.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getTicketById.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getTickets.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getTicketsByCategory.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getTicketsByStatus.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getTicketsOverTime.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/history.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/insertHistory.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/insertNote.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/insertTicket.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/searchCustomers.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/searchEmployees.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/updateTicket.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ]
+      },
+      "appIdentifier": "support-workbench"
+    }
+  }
+}
