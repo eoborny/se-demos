@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "retool": {
+    "app": {
+      "uuid": "130fb1b6-8764-11f1-b3e5-4fe5ec26e937",
+      "name": "Build an app that connect to",
+      "resourceReferencesByFile": {},
+      "appIdentifier": "build-an-app-that-connect-to"
+    }
+  }
+}
