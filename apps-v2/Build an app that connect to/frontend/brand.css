@@ -1,0 +1,110 @@
+/* Virgin Voyages brand layer.
+ * Maps the Virgin Voyages design-system tokens onto the shadcn CSS variables
+ * so every component (buttons, cards, tables, badges, inputs) adopts the brand.
+ * Loaded after orgTheme.css, so these overrides win.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap");
+
+:root {
+  /* Surfaces & text */
+  --background: 0 0% 100%; /* paper */
+  --foreground: 0 0% 10%; /* ink */
+  --card: 0 0% 100%; /* paper */
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+
+  /* Brand crimson as primary */
+  --primary: 0 91% 46%; /* crimson */
+  --primary-foreground: 0 0% 100%;
+
+  /* Cloud / aubergine supporting surfaces */
+  --secondary: 276 22% 95%; /* cloud */
+  --secondary-foreground: 282 72% 14%; /* aubergine */
+  --muted: 276 22% 95%; /* cloud */
+  --muted-foreground: 267 6% 35%; /* slate */
+  --body-foreground: 267 6% 35%;
+  --accent: 0 76% 95%; /* crimson soft */
+  --accent-foreground: 0 92% 37%; /* crimson dark */
+
+  /* Status */
+  --destructive: 0 92% 37%; /* crimson dark */
+  --destructive-foreground: 0 0% 100%;
+  --warning: 42 87% 55%; /* sand */
+  --warning-foreground: 0 0% 10%;
+  --success: 171 100% 33%; /* seafoam */
+  --success-foreground: 0 0% 100%;
+
+  /* Lines & focus */
+  --border: 270 16% 90%; /* line */
+  --input: 270 16% 90%;
+  --ring: 0 91% 46%; /* crimson */
+
+  /* Charts drawn from the brand palette */
+  --chart-1: 0 91% 46%; /* crimson */
+  --chart-2: 282 72% 14%; /* aubergine */
+  --chart-3: 171 100% 33%; /* seafoam */
+  --chart-4: 42 87% 55%; /* sand */
+  --chart-5: 5 100% 68%; /* coral */
+
+  /* Generous geometry */
+  --radius: 1rem;
+  --radius-md: calc(1rem - 2px);
+  --radius-sm: calc(1rem - 6px);
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.dark {
+  /* Aubergine-forward dark sections */
+  --background: 279 76% 8%; /* aubergine deep */
+  --foreground: 0 0% 100%;
+  --card: 282 72% 14%; /* aubergine */
+  --card-foreground: 0 0% 100%;
+  --popover: 282 72% 14%;
+  --popover-foreground: 0 0% 100%;
+
+  --primary: 0 91% 46%; /* crimson stays vivid */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 282 40% 22%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 282 40% 20%;
+  --muted-foreground: 270 12% 72%; /* mist */
+  --body-foreground: 270 12% 82%;
+  --accent: 282 40% 24%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 5 100% 68%; /* coral reads better on dark */
+  --destructive-foreground: 0 0% 10%;
+  --warning: 42 87% 55%;
+  --warning-foreground: 0 0% 10%;
+  --success: 171 100% 40%;
+  --success-foreground: 0 0% 10%;
+
+  --border: 282 30% 26%;
+  --input: 282 30% 26%;
+  --ring: 0 91% 46%;
+
+  --chart-1: 0 91% 55%;
+  --chart-2: 5 100% 68%;
+  --chart-3: 171 100% 45%;
+  --chart-4: 42 87% 60%;
+  --chart-5: 276 40% 70%;
+}
+
+/* Display + script helpers mirroring the brand type system. */
+.font-display {
+  font-family: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-weight: 900;
+  line-height: 0.98;
+}
+
+.font-script {
+  font-family: "Caveat", cursive;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 700;
+}
