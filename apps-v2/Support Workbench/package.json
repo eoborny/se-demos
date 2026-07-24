@@ -31,13 +31,6 @@
             "type": "retoolDb"
           }
         ],
-        "/backend/support/getAnalyticsKPIs.ts": [
-          {
-            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
-            "displayName": "retool_db",
-            "type": "retoolDb"
-          }
-        ],
         "/backend/support/getCustomerTickets.ts": [
           {
             "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
@@ -80,27 +73,6 @@
             "type": "retoolDb"
           }
         ],
-        "/backend/support/getOpenTicketsByAssignee.ts": [
-          {
-            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
-            "displayName": "retool_db",
-            "type": "retoolDb"
-          }
-        ],
-        "/backend/support/getOpenTicketsByType.ts": [
-          {
-            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
-            "displayName": "retool_db",
-            "type": "retoolDb"
-          }
-        ],
-        "/backend/support/getSlaCompliance.ts": [
-          {
-            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
-            "displayName": "retool_db",
-            "type": "retoolDb"
-          }
-        ],
         "/backend/support/getTicketById.ts": [
           {
             "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
@@ -109,27 +81,6 @@
           }
         ],
         "/backend/support/getTickets.ts": [
-          {
-            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
-            "displayName": "retool_db",
-            "type": "retoolDb"
-          }
-        ],
-        "/backend/support/getTicketsByCategory.ts": [
-          {
-            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
-            "displayName": "retool_db",
-            "type": "retoolDb"
-          }
-        ],
-        "/backend/support/getTicketsByStatus.ts": [
-          {
-            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
-            "displayName": "retool_db",
-            "type": "retoolDb"
-          }
-        ],
-        "/backend/support/getTicketsOverTime.ts": [
           {
             "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
             "displayName": "retool_db",
@@ -179,6 +130,57 @@
           }
         ],
         "/backend/support/updateTicket.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/user.d.ts": [],
+        "/backend/support/analytics.ts": [],
+        "/backend/support/getAnalyticsKPIs.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getOpenTicketsByAssignee.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getOpenTicketsByType.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getSlaCompliance.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getTicketsByCategory.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getTicketsByStatus.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/support/getTicketsOverTime.ts": [
           {
             "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
             "displayName": "retool_db",
