@@ -1,20 +1,32 @@
 import { useEffect, useState } from 'react'
 import { Building2, Users } from 'lucide-react'
-import { useGetTickets, useGetKPIs, useGetFilterOptions } from '../hooks/backend/support'
+import { useGetTickets, useGetKPIs, useGetFilterOptions, useUpdateTicket } from '../hooks/backend/support'
 import { KpiCards } from '../components/KpiCards'
 import { FilterMenu, DEFAULT_FILTERS, type TicketFilters } from '../components/FilterMenu'
 import { TicketTable } from '../components/TicketTable'
+import { toast } from '../lib/shadcn/sonner'
 import { C } from '../lib/cursor'
 import { useWorkbench } from '../lib/workbench'
 import type { KPIs, TicketRow } from '../lib/types'
 
 export default function Dashboard() {
-  const { openTicket, openNewTicket, selectedTicketId, dataVersion } = useWorkbench()
+  const { openTicket, openNewTicket, selectedTicketId, dataVersion, refreshData } = useWorkbench()
   const [filters, setFilters] = useState<TicketFilters>(DEFAULT_FILTERS)
 
   const ticketsFn = useGetTickets()
   const kpisFn = useGetKPIs()
   const optionsFn = useGetFilterOptions()
+  const updateFn = useUpdateTicket()
+
+  const handleReassign = async (id: number, assigneeEmail: string | null) => {
+    try {
+      await updateFn.trigger({ id, changes: { assignee_email: assigneeEmail } }).result
+      toast.success(assigneeEmail ? `Reassigned to ${assigneeEmail}` : 'Ticket unassigned')
+      refreshData()
+    } catch (e) {
+      toast.error(`Reassign failed: ${e instanceof Error ? e.message : String(e)}`)
+    }
+  }
 
   useEffect(() => {
     void kpisFn.trigger({}, { skipCache: true })
@@ -44,7 +56,7 @@ export default function Dashboard() {
     <div className="space-y-5">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight" style={{ color: C.text }}>
-          Cursor Support Workbench
+          Stripe Support Workbench
         </h1>
         <p className="text-sm" style={{ color: C.muted }}>
           Triage, resolve, and track external and internal support tickets.
@@ -99,6 +111,8 @@ export default function Dashboard() {
           loading={ticketsFn.loading && tickets.length === 0}
           onRowClick={openTicket}
           selectedId={selectedTicketId}
+          assignees={assignees}
+          onReassign={handleReassign}
         />
       )}
     </div>

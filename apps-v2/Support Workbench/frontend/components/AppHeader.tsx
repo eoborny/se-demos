@@ -12,14 +12,14 @@ export function AppHeader() {
       <div className="flex items-center gap-3">
         <div
           className="flex h-9 w-9 items-center justify-center rounded-lg text-base font-bold"
-          style={{ backgroundColor: C.text, color: C.surface }}
+          style={{ backgroundColor: C.orange, color: C.surface }}
           aria-hidden="true"
         >
-          C
+          S
         </div>
         <div className="leading-tight">
           <div className="text-lg font-semibold tracking-tight" style={{ color: C.text }}>
-            Cursor
+            Stripe
           </div>
           <div className="text-xs font-medium" style={{ color: C.muted }}>
             Support Workbench

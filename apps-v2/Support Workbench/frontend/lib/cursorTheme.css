@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --cursor-bg: #f7f7f4;
-  --cursor-bg-secondary: #efeee8;
+  --cursor-bg: #f6f9fc;
+  --cursor-bg-secondary: #eaf0f7;
   --cursor-surface: #ffffff;
   --cursor-text: #26251e;
   --cursor-muted: #807d72;
-  --cursor-orange: #f54e00;
-  --cursor-orange-hover: #d04200;
+  --cursor-orange: #533afd;
+  --cursor-orange-hover: #3f28e0;
   --cursor-border: #e6e5e0;
   --cursor-success: #1f8a65;
   --cursor-error: #cf2d56;
   --cursor-warning: #c08532;
 }
 
-/* Cursor Light brand: fixed light palette regardless of viewer mode. */
+/* Stripe brand: fixed light palette regardless of viewer mode. */
 .cursor-workbench {
   background-color: var(--cursor-bg);
   color: var(--cursor-text);
@@ -41,7 +41,7 @@
 }
 
 .cursor-workbench ::selection {
-  background: rgba(245, 78, 0, 0.18);
+  background: rgba(83, 58, 253, 0.18);
 }
 
 /* Slim, on-brand scrollbars inside scroll areas. */
