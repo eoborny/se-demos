@@ -64,9 +64,9 @@ export default function Dashboard() {
             type="button"
             onClick={() => openNewTicket({ ticketType: 'external' })}
             className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition-colors"
-            style={{ backgroundColor: C.orange }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = C.orangeHover)}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = C.orange)}
+            style={{ backgroundColor: '#7c3aed' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#6d28d9')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#7c3aed')}
           >
             <Building2 className="h-4 w-4" />
             New External Ticket

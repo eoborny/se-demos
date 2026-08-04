@@ -6,7 +6,9 @@ settings:
 
 importers:
 
-  .:
+  .: {}
+  backend: {}
+  frontend:
     dependencies:
       '@radix-ui/react-accordion':
         specifier: 1.2.12
