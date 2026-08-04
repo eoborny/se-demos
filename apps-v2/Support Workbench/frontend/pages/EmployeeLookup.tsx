@@ -79,7 +79,7 @@ export default function EmployeeLookup() {
                   type="button"
                   onClick={() => setSelected(emp)}
                   className="w-full text-left px-4 py-3 transition-colors"
-                  style={{ backgroundColor: active ? 'rgba(245,78,0,0.06)' : undefined }}
+                  style={{ backgroundColor: active ? 'rgba(83,58,253,0.06)' : undefined }}
                 >
                   <div className="text-sm font-medium" style={{ color: C.text }}>
                     {emp.name}

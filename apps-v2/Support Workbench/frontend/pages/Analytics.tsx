@@ -17,7 +17,9 @@ import {
   Legend,
   ResponsiveContainer,
   LabelList,
+  ReferenceArea,
 } from 'recharts'
+import { ZoomOut } from 'lucide-react'
 import { NativeSelect } from '../lib/shadcn/native-select'
 import { Label } from '../lib/shadcn/label'
 import {
@@ -53,8 +55,13 @@ function shortDate(d: string): string {
 }
 
 export default function Analytics() {
-  const [dateRange, setDateRange] = useState('7d')
+  const [dateRange, setDateRange] = useState('30d')
   const [ticketType, setTicketType] = useState('All')
+
+  // Drag-to-zoom state for the Tickets Over Time chart.
+  const [refLeft, setRefLeft] = useState<string | null>(null)
+  const [refRight, setRefRight] = useState<string | null>(null)
+  const [zoom, setZoom] = useState<{ start: number; end: number } | null>(null)
 
   const kpisFn = useGetAnalyticsKPIs()
   const overTimeFn = useGetTicketsOverTime()
@@ -65,6 +72,9 @@ export default function Analytics() {
   const slaFn = useGetSlaCompliance()
 
   useEffect(() => {
+    setZoom(null)
+    setRefLeft(null)
+    setRefRight(null)
     const args = { dateRange, ticketType }
     void kpisFn.trigger(args, { skipCache: true })
     void overTimeFn.trigger(args, { skipCache: true })
@@ -81,6 +91,31 @@ export default function Analytics() {
     ...r,
     label: shortDate(r.date),
   }))
+  const overTimeZoomed =
+    zoom && overTime.length > 0 ? overTime.slice(zoom.start, zoom.end + 1) : overTime
+
+  function indexOfLabel(label: string): number {
+    return overTime.findIndex((r) => r.label === label)
+  }
+
+  function applyZoom() {
+    if (refLeft == null || refRight == null || refLeft === refRight) {
+      setRefLeft(null)
+      setRefRight(null)
+      return
+    }
+    let a = indexOfLabel(refLeft)
+    let b = indexOfLabel(refRight)
+    if (a < 0 || b < 0) {
+      setRefLeft(null)
+      setRefRight(null)
+      return
+    }
+    if (a > b) [a, b] = [b, a]
+    setZoom({ start: a, end: b })
+    setRefLeft(null)
+    setRefRight(null)
+  }
   const byCat = (byCatFn.data as CountRow[] | undefined) ?? []
   const byAssignee = (byAssigneeFn.data as CountRow[] | undefined) ?? []
   const byStatus = ((byStatusFn.data as CountRow[] | undefined) ?? []).map((r) => ({
@@ -102,7 +137,8 @@ export default function Analytics() {
     return C.error
   }, [sla])
 
-  const rangeLabel = dateRange === '7d' ? 'last 7 days' : dateRange === '90d' ? 'last 90 days' : 'last 30 days'
+  const rangeLabel =
+    dateRange === '90d' ? 'last 90 days' : dateRange === '60d' ? 'last 60 days' : 'last 30 days'
 
   return (
     <div className="space-y-5">
@@ -127,8 +163,8 @@ export default function Analytics() {
               className="w-40"
               style={{ backgroundColor: C.surface, borderColor: C.border, color: C.text }}
             >
-              <option value="7d">Last 7 days</option>
               <option value="30d">Last 30 days</option>
+              <option value="60d">Last 60 days</option>
               <option value="90d">Last 90 days</option>
             </NativeSelect>
           </div>
@@ -158,12 +194,46 @@ export default function Analytics() {
         <div className="xl:col-span-2">
           <ChartCard
             title="Tickets Over Time"
-            subtitle={`Created, resolved, and open — ${rangeLabel}`}
+            subtitle={
+              zoom
+                ? `Zoomed: ${overTimeZoomed[0]?.label ?? ''} – ${overTimeZoomed[overTimeZoomed.length - 1]?.label ?? ''}`
+                : `Created, resolved, and open — ${rangeLabel}`
+            }
             loading={overTimeFn.loading && overTime.length === 0}
             empty={!overTimeFn.loading && overTime.length === 0}
+            action={
+              zoom ? (
+                <button
+                  type="button"
+                  onClick={() => setZoom(null)}
+                  className="flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors"
+                  style={{ borderColor: C.border, color: C.text, backgroundColor: C.surface }}
+                >
+                  <ZoomOut className="h-3.5 w-3.5" />
+                  Reset zoom
+                </button>
+              ) : (
+                <span className="text-xs" style={{ color: C.muted }}>
+                  Drag to zoom
+                </span>
+              )
+            }
           >
             <ResponsiveContainer width="100%" height={280}>
-              <AreaChart data={overTime} margin={{ top: 8, right: 12, left: -12, bottom: 0 }}>
+              <AreaChart
+                data={overTimeZoomed}
+                margin={{ top: 8, right: 12, left: -12, bottom: 0 }}
+                onMouseDown={(e) =>
+                  e?.activeLabel != null ? setRefLeft(String(e.activeLabel)) : undefined
+                }
+                onMouseMove={(e) =>
+                  refLeft != null && e?.activeLabel != null
+                    ? setRefRight(String(e.activeLabel))
+                    : undefined
+                }
+                onMouseUp={applyZoom}
+                style={{ cursor: 'crosshair', userSelect: 'none' }}
+              >
                 <defs>
                   <linearGradient id="gCreated" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor={CHART.orange} stopOpacity={0.35} />
@@ -186,10 +256,79 @@ export default function Analytics() {
                 <Area type="monotone" dataKey="created" name="Created" stroke={CHART.orange} strokeWidth={2} fill="url(#gCreated)" />
                 <Area type="monotone" dataKey="resolved" name="Resolved" stroke={CHART.green} strokeWidth={2} fill="url(#gResolved)" />
                 <Area type="monotone" dataKey="open" name="Open" stroke={CHART.blue} strokeWidth={2} fill="url(#gOpen)" />
+                {refLeft != null && refRight != null && (
+                  <ReferenceArea
+                    x1={refLeft}
+                    x2={refRight}
+                    strokeOpacity={0.3}
+                    fill={CHART.orange}
+                    fillOpacity={0.12}
+                  />
+                )}
               </AreaChart>
             </ResponsiveContainer>
           </ChartCard>
         </div>
+
+        {/* SLA compliance */}
+        <ChartCard
+          title="SLA Compliance"
+          subtitle={`Resolved before SLA — ${rangeLabel}`}
+          loading={slaFn.loading && !sla}
+          empty={!slaFn.loading && (!sla || sla.total === 0)}
+          emptyLabel="No resolved tickets in this range."
+        >
+          <div className="flex items-center gap-4">
+            <div className="relative" style={{ width: 200, height: 200 }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <RadialBarChart
+                  innerRadius="72%"
+                  outerRadius="100%"
+                  data={[{ name: 'SLA', value: sla?.pct ?? 0, fill: slaColor }]}
+                  startAngle={90}
+                  endAngle={-270}
+                >
+                  <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
+                  <RadialBar background={{ fill: C.bgSecondary }} dataKey="value" cornerRadius={999} />
+                </RadialBarChart>
+              </ResponsiveContainer>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="text-3xl font-semibold" style={{ color: C.text }}>
+                  {sla?.pct != null ? `${sla.pct}%` : '—'}
+                </span>
+                <span className="text-xs" style={{ color: C.muted }}>
+                  compliant
+                </span>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div>
+                <div className="text-2xl font-semibold" style={{ color: CHART.green }}>
+                  {sla?.met ?? 0}
+                </div>
+                <div className="text-xs" style={{ color: C.muted }}>
+                  Met SLA
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-semibold" style={{ color: C.error }}>
+                  {sla?.breached ?? 0}
+                </div>
+                <div className="text-xs" style={{ color: C.muted }}>
+                  Breached SLA
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-semibold" style={{ color: C.text }}>
+                  {sla?.total ?? 0}
+                </div>
+                <div className="text-xs" style={{ color: C.muted }}>
+                  Resolved total
+                </div>
+              </div>
+            </div>
+          </div>
+        </ChartCard>
 
         {/* Tickets by category */}
         <ChartCard
@@ -203,7 +342,7 @@ export default function Analytics() {
               <CartesianGrid strokeDasharray="3 3" stroke={C.border} horizontal={false} />
               <XAxis type="number" allowDecimals={false} tick={axisTick} stroke={C.border} />
               <YAxis type="category" dataKey="category" width={90} tick={axisTick} stroke={C.border} />
-              <Tooltip contentStyle={tooltipStyle} cursor={{ fill: 'rgba(245,78,0,0.06)' }} />
+              <Tooltip contentStyle={tooltipStyle} cursor={{ fill: 'rgba(83,58,253,0.06)' }} />
               <Bar dataKey="count" name="Open" fill={CHART.orange} radius={[0, 4, 4, 0]}>
                 <LabelList dataKey="count" position="right" style={{ fontSize: 11, fill: C.muted }} />
               </Bar>
@@ -290,66 +429,6 @@ export default function Analytics() {
               <Legend wrapperStyle={{ fontSize: 12 }} />
             </PieChart>
           </ResponsiveContainer>
-        </ChartCard>
-
-        {/* SLA compliance */}
-        <ChartCard
-          title="SLA Compliance"
-          subtitle={`Resolved before SLA — ${rangeLabel}`}
-          loading={slaFn.loading && !sla}
-          empty={!slaFn.loading && (!sla || sla.total === 0)}
-          emptyLabel="No resolved tickets in this range."
-        >
-          <div className="flex items-center gap-4">
-            <div className="relative" style={{ width: 200, height: 200 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <RadialBarChart
-                  innerRadius="72%"
-                  outerRadius="100%"
-                  data={[{ name: 'SLA', value: sla?.pct ?? 0, fill: slaColor }]}
-                  startAngle={90}
-                  endAngle={-270}
-                >
-                  <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-                  <RadialBar background={{ fill: C.bgSecondary }} dataKey="value" cornerRadius={999} />
-                </RadialBarChart>
-              </ResponsiveContainer>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-3xl font-semibold" style={{ color: C.text }}>
-                  {sla?.pct != null ? `${sla.pct}%` : '—'}
-                </span>
-                <span className="text-xs" style={{ color: C.muted }}>
-                  compliant
-                </span>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <div>
-                <div className="text-2xl font-semibold" style={{ color: CHART.green }}>
-                  {sla?.met ?? 0}
-                </div>
-                <div className="text-xs" style={{ color: C.muted }}>
-                  Met SLA
-                </div>
-              </div>
-              <div>
-                <div className="text-2xl font-semibold" style={{ color: C.error }}>
-                  {sla?.breached ?? 0}
-                </div>
-                <div className="text-xs" style={{ color: C.muted }}>
-                  Breached SLA
-                </div>
-              </div>
-              <div>
-                <div className="text-2xl font-semibold" style={{ color: C.text }}>
-                  {sla?.total ?? 0}
-                </div>
-                <div className="text-xs" style={{ color: C.muted }}>
-                  Resolved total
-                </div>
-              </div>
-            </div>
-          </div>
         </ChartCard>
       </div>
     </div>

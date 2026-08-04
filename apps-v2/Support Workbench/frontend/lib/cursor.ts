@@ -1,13 +1,13 @@
 import type { CSSProperties } from 'react'
 
 export const C = {
-  bg: '#f7f7f4',
-  bgSecondary: '#efeee8',
+  bg: '#f6f9fc',
+  bgSecondary: '#eaf0f7',
   surface: '#ffffff',
   text: '#26251e',
   muted: '#807d72',
-  orange: '#f54e00',
-  orangeHover: '#d04200',
+  orange: '#533afd',
+  orangeHover: '#3f28e0',
   border: '#e6e5e0',
   success: '#1f8a65',
   error: '#cf2d56',
@@ -148,9 +148,9 @@ export function slaCountdown(
   return { text: `Due in ${span}`, tone: 'ok' }
 }
 
-// Cursor-themed chart palette (solid, legible versions of the brand pastels).
+// Stripe-themed chart palette (solid, legible versions of the brand pastels).
 export const CHART = {
-  orange: '#f54e00',
+  orange: '#533afd',
   ink: '#26251e',
   blue: '#6ba3e5',
   gold: '#d3ac57',

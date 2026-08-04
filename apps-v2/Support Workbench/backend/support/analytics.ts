@@ -4,6 +4,8 @@ export function rangeDays(dateRange: string | undefined): number {
   switch (dateRange) {
     case '7d':
       return 7
+    case '60d':
+      return 60
     case '90d':
       return 90
     case '30d':
