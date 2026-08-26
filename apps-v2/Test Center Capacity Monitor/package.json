@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "retool": {
+    "app": {
+      "uuid": "51f39298-9a52-11f1-8c08-877735708931",
+      "name": "Test Center Capacity Monitor",
+      "resourceReferencesByFile": {
+        "/backend/testCenters/addCenterNote.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/testCenters/getCenterDetail.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/testCenters/getTestCenters.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ]
+      },
+      "appIdentifier": "test-center-capacity-monitor"
+    }
+  }
+}
