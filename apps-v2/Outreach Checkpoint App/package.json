@@ -1,0 +1,374 @@
+{
+  "private": true,
+  "retool": {
+    "app": {
+      "uuid": "ed2700c0-a23a-11f1-ac34-477be3aea885",
+      "name": "Outreach Checkpoint App",
+      "resourceReferencesByFile": {
+        "/backend/console/activatePlaybookVersion.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/approveDraft.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/approverDecision.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/bulkApprove.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/createDraftFromPlaybook.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/createExperiment.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/createPlaybookVersion.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/deleteRoutingRule.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/editApproveDraft.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/getAnalytics.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/console/getAuditLog.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/console/getDraft.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/getDrafts.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/getExperimentResults.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/getExperiments.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/getPlaybookDetail.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/getPlaybooks.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/getRoutingRules.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/getVersionOptions.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/console/logDraftOutcome.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/promoteVariant.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/reassignDraft.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/regenerateDraft.ts": [
+          {
+            "name": "retool_ai_provider_994777c162d1a15485c0b8afcf4b6164",
+            "displayName": "Anthropic",
+            "type": "anthropic"
+          },
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/rejectDraft.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/saveRoutingRule.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/sendDraft.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/shared.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/startExperiment.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/stopExperiment.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/toggleRoutingRule.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ],
+        "/backend/console/updateDraftContent.ts": [
+          {
+            "name": "fae925e1-5517-4289-9cdc-f9a19a22079d",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          },
+          {
+            "name": "9b6a545a-555e-4e46-9ecc-d91e1727a448",
+            "displayName": "Workflows Demo Slack",
+            "type": "slackopenapi"
+          }
+        ]
+      },
+      "appIdentifier": "outreach-checkpoint-app"
+    }
+  }
+}

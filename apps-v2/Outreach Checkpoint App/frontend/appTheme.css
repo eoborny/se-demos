@@ -1,0 +1,33 @@
+/* Asana brand theme for the Outreach Review Console.
+   Source: Asana Brand Identity Guidelines (FY27) — see /uploads/asanaBrand.jsx.
+   Coral primary (#FF584A), brand chart palette, TWK Lausanne type stack.
+   Defined with :root:root / :root.dark to win the cascade over theme.css. */
+
+:root:root {
+  --primary: 5 100% 64%;            /* Asana Coral #FF584A */
+  --primary-foreground: 0 0% 100%;  /* White on coral (brand pairing) */
+  --ring: 5 100% 64%;
+
+  /* Brand palette: coral, purple, blue, green, orange */
+  --chart-1: 5 100% 64%;            /* coral   #FF584A */
+  --chart-2: 250 94% 66%;           /* purple  #7458FA */
+  --chart-3: 210 100% 50%;          /* blue    #007FFF */
+  --chart-4: 141 72% 34%;           /* green   #0FA042 */
+  --chart-5: 29 100% 50%;           /* orange  #FF7A00 */
+
+  --radius: 0.75rem;
+
+  --font-sans: 'TWK Lausanne', Inter, Arial, Helvetica, sans-serif;
+}
+
+:root.dark {
+  --primary: 5 100% 66%;
+  --primary-foreground: 0 0% 100%;
+  --ring: 5 100% 66%;
+
+  --chart-1: 5 100% 68%;
+  --chart-2: 250 95% 74%;
+  --chart-3: 210 100% 62%;
+  --chart-4: 141 60% 48%;
+  --chart-5: 29 100% 58%;
+}
